@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoEdit Academy - Video Editing & Programming Lessons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #00ffea;
+            --accent2: #ff006e;
+            --dark: #0d1117;
+            --card: rgba(15, 22, 34, 0.9);
+            --text: #c9d1d9;
+            --glow: 0 0 20px rgba(0, 255, 234, 0.3);
+        }
+        body {
+            font-family: 'Exo 2', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f1622 0%, #1a0b2e 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        header {
+            padding: 100px 20px 60px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent);
+        }
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 4.5rem;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            opacity: 0.9;
+        }
+        nav {
+            background: rgba(13,17,23,0.95);
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        nav a {
+            color: var(--accent);
+            margin: 0 30px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .lesson {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: var(--glow);
+            border: 1px solid rgba(0,255,234,0.1);
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .lesson.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .lesson h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-top: 0;
+        }
+        .lesson ul {
+            padding-left: 30px;
+        }
+        .lesson li {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        .tip {
+            background: rgba(255,0,110,0.1);
+            padding: 20px;
+            border-left: 5px solid var(--accent2);
+            border-radius: 10px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        code {
+            background: rgba(0,0,0,0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        pre {
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .grid-item {
+            background: rgba(0,255,234,0.2);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 50px;
+            color: #8b949e;
+            border-top: 1px solid rgba(0,255,234,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NeoEdit Academy</h1>
+        <p>Expanded Lessons on Video Editing & Programming – Clear Text Explanations for All Levels</p>
+    </header>
+    <nav>
+        <a href="#basics">Editing Basics</a>
+        <a href="#effects">Effects</a>
+        <a href="#transitions">Transitions</a>
+        <a href="#motion">Motion Graphics</a>
+        <a href="#programming">Programming</a>
+    </nav>
+    <section id="basics">
+        <h2 class="section-title">Editing Basics</h2>
+        <div class="lesson">
+            <h2>Linear vs Non-Linear Editing</h2>
+            <p><strong>Step 1:</strong> Understand linear: Sequential editing on tape, no random access.</p>
+            <p><strong>Step 2:</strong> Non-linear: Digital, random access, use software like Premiere.</p>
+            <p><strong>Step 3:</strong> Choose NLE for modern workflows.</p>
+            <p><strong>Linear Editing:</strong> The old way (used with VHS tapes and film). You edit in order from start to finish. If you want to change something in the middle, you have to re-record everything after it. Very limited and time-consuming.</p>
+            <p><strong>Non-Linear Editing (NLE):</strong> The modern way (Premiere Pro, DaVinci Resolve, Final Cut, etc.). Your footage is on a computer, so you can jump to any part, make changes, add effects, and experiment freely without destroying previous work. Unlimited undos and total flexibility.</p>
+            <div class="tip">Today, almost all professional editing is non-linear – it's faster and more creative.</div>
+        </div>
+        <div class="lesson">
+            <h2>Cutting Techniques</h2>
+            <p><strong>Step 1:</strong> Select clip, use razor tool or shortcut to cut.</p>
+            <p><strong>Step 2:</strong> For jump cut: Cut and remove middle section in same shot.</p>
+            <p><strong>Step 3:</strong> Match cut: Align similar shapes/actions between clips.</p>
+            <p><strong>Straight Cut:</strong> The simplest – just joining two clips. Used for normal pacing.</p>
+            <p><strong>Jump Cut:</strong> Cutting out part of the same shot (e.g., removing pauses in talking). Creates energy or urgency. Popular in YouTube vlogs.</p>
+            <p><strong>Match Cut:</strong> Cutting from one shot to another where the action or shape matches perfectly (e.g., a door closing cuts to a book closing). Makes transitions feel seamless and artistic.</p>
+            <p><strong>J-Cut & L-Cut:</strong> Audio from the next/previous scene starts before or continues after the video cut. Great for smooth dialogue scenes.</p>
+        </div>
+        <div class="lesson">
+            <h2>Timeline Management</h2>
+            <p><strong>Step 1:</strong> Import media to project panel.</p>
+            <p><strong>Step 2:</strong> Drag to timeline, trim with ripple edit tool.</p>
+            <p><strong>Step 3:</strong> Layer video/audio tracks, adjust opacity/volume.</p>
+            <p>The timeline is your editing workspace. Import clips, arrange them in order, trim start/end points, and layer effects/audio.</p>
+            <p>Key tips: Use markers for key moments, group clips for easy moving, and zoom in/out for precision.</p>
+            <div class="tip">Organize your project with bins/folders for footage, audio, and graphics to avoid chaos.</div>
+        </div>
+        <div class="lesson">
+            <h2>Audio Editing Basics</h2>
+            <p><strong>Step 1:</strong> Import audio, place on timeline under video.</p>
+            <p><strong>Step 2:</strong> Use waveform to sync peaks with video actions.</p>
+            <p><strong>Step 3:</strong> Apply EQ: High-pass filter to remove rumble, boost mids for clarity.</p>
+            <p><strong>Step 4:</strong> Compression: Set threshold/ratio to even levels.</p>
+            <p>Sync audio with video, adjust volume levels, add fades to avoid abrupt changes.</p>
+            <p>Use EQ to balance frequencies (boost bass for depth, cut highs for clarity), and compression to even out loud/soft parts.</p>
+            <p>Add sound effects or music tracks on separate layers.</p>
+        </div>
+    </section>
+    <section id="effects">
+        <h2 class="section-title">Advanced Effects Explained</h2>
+        <div class="lesson">
+            <h2>Blur & Sharpen</h2>
+            <p><strong>Step 1:</strong> Apply Gaussian Blur to layer, adjust radius for strength.</p>
+            <p><strong>Step 2:</strong> For motion blur: Enable in software or add effect for fast-moving objects.</p>
+            <p><strong>Step 3:</strong> Sharpen: Use Unsharp Mask, set amount 50-100, radius 1-2, threshold 0.</p>
+            <p><strong>Gaussian Blur:</strong> Softens the image evenly. Use to create depth of field (background blur), dream sequences, or reduce noise.</p>
+            <p><strong>Motion Blur:</strong> Simulates blur from fast movement. Makes action look more realistic.</p>
+            <p><strong>Sharpen:</strong> Increases edge contrast to make details pop.</p>
+            <p><strong>Unsharp Mask:</strong> Advanced sharpening – creates a blurred copy and subtracts it from the original for cleaner, more controlled results.</p>
+            <div class="tip">Use blur on backgrounds to guide viewer attention to the subject.</div>
+        </div>
+        <div class="lesson">
+            <h2>Color Effects</h2>
+            <p><strong>Step 1:</strong> Apply Grayscale effect or desaturate in color panel.</p>
+            <p><strong>Step 2:</strong> For Sepia: Use color balance, boost reds/yellows.</p>
+            <p><strong>Step 3:</strong> Colorize: Convert to grayscale, add tint color overlay.</p>
+            <p><strong>Step 4:</strong> Temperature: Slide warmer (positive) or cooler (negative) in color tools.</p>
+            <p><strong>Grayscale:</strong> Removes all color for dramatic black-and-white look.</p>
+            <p><strong>Sepia:</strong> Adds warm brown tones for vintage/old-film feel.</p>
+            <p><strong>Colorize:</strong> Applies a single color tint to monochrome footage.</p>
+            <p><strong>Temperature/Tint:</strong> Adjusts warm (orange) vs cool (blue) balance to fix lighting or set mood.</p>
+        </div>
+        <div class="lesson">
+            <h2>Stylize Effects</h2>
+            <p><strong>Step 1:</strong> Apply Glow, adjust intensity and threshold.</p>
+            <p><strong>Step 2:</strong> Emboss: Set relief, contrast for 3D look.</p>
+            <p><strong>Step 3:</strong> Mosaic: Adjust block size for pixelation.</p>
+            <p><strong>Step 4:</strong> Posterize: Reduce color levels to 4-8 for graphic style.</p>
+            <p><strong>Glow:</strong> Adds soft light around bright areas – great for magical or dreamy scenes.</p>
+            <p><strong>Emboss:</strong> Creates a raised 3D relief effect, often used on titles.</p>
+            <p><strong>Mosaic:</strong> Breaks image into large pixels – good for censorship or abstract art.</p>
+            <p><strong>Posterize:</strong> Reduces number of colors for bold, graphic novel look.</p>
+        </div>
+        <div class="lesson">
+            <h2>Distort Effects</h2>
+            <p><strong>Step 1:</strong> Apply Warp, adjust mesh points to deform.</p>
+            <p><strong>Step 2:</strong> Twirl: Set center, angle for spiral.</p>
+            <p><strong>Step 3:</strong> Ripple: Adjust amount, speed for waves.</p>
+            <p><strong>Step 4:</strong> Lens Distortion: Set curvature for barrel/pincushion.</p>
+            <p><strong>Warp:</strong> Deforms image using a grid – perfect for face morphing or liquid effects.</p>
+            <p><strong>Twirl:</strong> Spirals the image from the center.</p>
+            <p><strong>Ripple:</strong> Creates water-like waves.</p>
+            <p><strong>Lens Distortion:</strong> Simulates real camera lens flaws (barrel or pincushion).</p>
+        </div>
+        <div class="lesson">
+            <h2>Generate Effects</h2>
+            <p><strong>Step 1:</strong> Create solid layer, apply Gradient Ramp, set colors/positions.</p>
+            <p><strong>Step 2:</strong> Lens Flare: Place at light source, adjust brightness, lens type.</p>
+            <p><strong>Step 3:</strong> Grid: Adjust spacing, opacity for overlay.</p>
+            <p><strong>Step 4:</strong> Audio Spectrum: Apply to solid, link to audio layer, customize bands/colors.</p>
+            <p><strong>Gradient:</strong> Creates smooth color transitions for backgrounds or overlays.</p>
+            <p><strong>Lens Flare:</strong> Adds realistic light streaks and bursts.</p>
+            <p><strong>Grid:</strong> Overlays lines for alignment or sci-fi HUDs.</p>
+            <p><strong>Audio Spectrum:</strong> Visualizes music as reacting bars/waves – essential for music videos.</p>
+        </div>
+        <div class="lesson">
+            <h2>Speed Ramping</h2>
+            <p><strong>Step 1:</strong> Select clip, enable time remapping.</p>
+            <p><strong>Step 2:</strong> Add keyframes at start/end of ramp.</p>
+            <p><strong>Step 3:</strong> Adjust speed curve in graph editor for smooth acceleration.</p>
+            <p><strong>Step 4:</strong> Retime audio if needed, or mute and add new sound.</p>
+            <p>Change video speed mid-clip: slow-mo for drama, fast-forward for comedy or time-lapse.</p>
+            <p>Key steps: Set keyframes for speed changes, use easing for smooth ramps, retime audio to match if needed.</p>
+        </div>
+        <div class="lesson">
+            <h2>Green Screen/Keying</h2>
+            <p><strong>Step 1:</strong> Import green screen clip and background.</p>
+            <p><strong>Step 2:</strong> Apply keying effect, sample green color.</p>
+            <p><strong>Step 3:</strong> Adjust spill suppression, edge feather.</p>
+            <p><strong>Step 4:</strong> Fine-tune with matte choker for clean edges.</p>
+            <p>Remove a solid color background (usually green) to composite over new footage.</p>
+            <p>Use chroma key tools: Sample the color, adjust tolerance, clean edges with matte chokers. Light evenly to avoid spills.</p>
+            <div class="tip">Green for people (less skin tone overlap), blue for objects.</div>
+        </div>
+    </section>
+    <section id="transitions">
+        <h2 class="section-title">Transitions</h2>
+        <div class="lesson">
+            <h2>Common Transitions</h2>
+            <p><strong>Step 1:</strong> Overlap two clips on timeline.</p>
+            <p><strong>Step 2:</strong> Apply wipe effect, choose radial/linear/card.</p>
+            <p><strong>Step 3:</strong> Adjust duration and direction.</p>
+            <p><strong>Radial Wipe:</strong> Reveals the next scene like a clock hand sweeping.</p>
+            <p><strong>Linear Wipe:</strong> Slides in from one direction (left, right, top, bottom).</p>
+            <p><strong>Card Wipe:</strong> Flips the scene like turning a page or card.</p>
+            <div class="tip">Use simple cuts most of the time – fancy transitions can distract if overused.</div>
+        </div>
+        <div class="lesson">
+            <h2>Custom Transitions</h2>
+            <p><strong>Step 1:</strong> Create adjustment layer over overlap.</p>
+            <p><strong>Step 2:</strong> Apply mask or effect like displacement.</p>
+            <p><strong>Step 3:</strong> Keyframe mask/effect for animation.</p>
+            <p>Create your own using masks, adjustment layers, or effects like displacement maps.</p>
+            <p>Example: Use a gradient wipe for smooth blends, or animate shapes for unique reveals.</p>
+        </div>
+    </section>
+    <section id="motion">
+        <h2 class="section-title">Motion Graphics Basics</h2>
+        <div class="lesson">
+            <h2>Keyframing</h2>
+            <p><strong>Step 1:</strong> Select property (position, scale).</p>
+            <p><strong>Step 2:</strong> Click stopwatch to enable keyframing.</p>
+            <p><strong>Step 3:</strong> Move timeline, change value to add keyframe.</p>
+            <p><strong>Step 4:</strong> Adjust ease in graph editor.</p>
+            <p>The foundation of all animation. You set "keyframes" where properties change (position, scale, rotation, opacity). The software automatically fills in the movement between them.</p>
+            <p>Example: Keyframe 1 – text off-screen. Keyframe 2 (2 seconds later) – text centered. Result: smooth slide-in animation.</p>
+        </div>
+        <div class="lesson">
+            <h2>Text Animation</h2>
+            <p><strong>Step 1:</strong> Add text layer.</p>
+            <p><strong>Step 2:</strong> Keyframe opacity for fade, position for slide.</p>
+            <p><strong>Step 3:</strong> For advanced: Use animator, add selector for per-character.</p>
+            <p>Start simple: fade in, slide from side, scale up.</p>
+            <p>Advanced: Animate individual letters, use tracking/position per character, add glitch or type-on effects.</p>
+        </div>
+        <div class="lesson">
+            <h2>Shape Layers</h2>
+            <p><strong>Step 1:</strong> Create shape layer (rectangle, ellipse).</p>
+            <p><strong>Step 2:</strong> Add Trim Paths, keyframe end from 0 to 100% for draw.</p>
+            <p><strong>Step 3:</strong> Add Repeater for patterns, adjust copies/offset.</p>
+            <p>Vector shapes that scale perfectly. Use "Trim Paths" to draw lines on screen, "Repeater" to create patterns.</p>
+            <p>Great for logos, icons, and abstract backgrounds.</p>
+        </div>
+        <div class="lesson">
+            <h2>Easing & Timing</h2>
+            <p><strong>Step 1:</strong> Select keyframes, right-click, choose Easy Ease.</p>
+            <p><strong>Step 2:</strong> In graph editor, adjust velocity curve for custom easing.</p>
+            <p><strong>Step 3:</strong> Test timing: Play back, adjust keyframe spacing.</p>
+            <p>Easing makes movement natural: "Ease Out" (starts fast, slows down), "Ease In" (slow start, speeds up), "Bounce" for playful feel.</p>
+            <p>Good timing = realistic and engaging animation.</p>
+        </div>
+        <div class="lesson">
+            <h2>Lower Thirds</h2>
+            <p><strong>Step 1:</strong> Create text layer for name/title.</p>
+            <p><strong>Step 2:</strong> Add shape background (rectangle with rounded corners).</p>
+            <p><strong>Step 3:</strong> Keyframe position/opacity for slide-in fade.</p>
+            <p><strong>Step 4:</strong> Add line or accent shape, animate trim paths.</p>
+            <p>On-screen text showing names/titles (common in interviews). Combine text + shape background, animate smooth entry/exit.</p>
+            <p>Keep clean, readable, and consistent with your brand.</p>
+        </div>
+        <div class="lesson">
+            <h2>Expressions</h2>
+            <p><strong>Step 1:</strong> Alt-click stopwatch to open expression editor.</p>
+            <p><strong>Step 2:</strong> Write code like wiggle(freq, amp).</p>
+            <p><strong>Step 3:</strong> Test and adjust values.</p>
+            <p>Code snippets to automate animation (e.g., wiggle for random shake).</p>
+            <p>Example: wiggle(5,20) – vibrates 5 times per second by 20 units.</p>
+        </div>
+    </section>
+    <section id="programming">
+        <h2 class="section-title">Programming Lessons</h2>
+        <div class="lesson">
+            <h2>Python Basics</h2>
+            <p><strong>Step 1:</strong> Install Python, run print("Hello, World!").</p>
+            <p><strong>Step 2:</strong> Assign variables: x = 5.</p>
+            <p><strong>Step 3:</strong> Loop: for i in range(5): print(i).</p>
+            <p>Python is easy for beginners, great for automation, data, and scripting.</p>
+            <p><strong>Hello World:</strong></p>
+            <pre><code>print("Hello, World!")</code></pre>
+            <p><strong>Variables:</strong> No type declaration – x = 5; name = "Alice"</p>
+            <p><strong>Loops:</strong> for i in range(5): print(i)</p>
+            <p><strong>Functions:</strong> def add(a, b): return a + b</p>
+            <p><strong>Lists:</strong> fruits = ["apple", "banana"]; fruits.append("cherry")</p>
+            <div class="tip">Use Python for video editing automation, like batch processing with FFmpeg.</div>
+        </div>
+        <div class="lesson">
+            <h2>Python Advanced</h2>
+            <p><strong>Step 1:</strong> Define class with __init__.</p>
+            <p><strong>Step 2:</strong> Import module like math.</p>
+            <p><strong>Step 3:</strong> Use with open for files.</p>
+            <p><strong>Classes:</strong> class Dog: def __init__(self, name): self.name = name; def bark(self): print("Woof!")</p>
+            <p><strong>Modules:</strong> import math; print(math.sqrt(16))</p>
+            <p><strong>File Handling:</strong> with open("file.txt", "r") as f: content = f.read()</p>
+            <p><strong>Exceptions:</strong> try: x / 0 except: print("Error")</p>
+        </div>
+        <div class="lesson">
+            <h2>JavaScript Basics</h2>
+            <p><strong>Step 1:</strong> Console.log in script tag.</p>
+            <p><strong>Step 2:</strong> Declare let/const variables.</p>
+            <p><strong>Step 3:</strong> Use for loop.</p>
+            <p>JS for web interactivity, front-end scripting.</p>
+            <p><strong>Hello World:</strong> console.log("Hello, World!")</p>
+            <p><strong>Variables:</strong> let x = 5; const name = "Alice"</p>
+            <p><strong>Loops:</strong> for (let i = 0; i < 5; i++) { console.log(i); }</p>
+            <p><strong>Functions:</strong> function add(a, b) { return a + b; }</p>
+            <p><strong>Arrays:</strong> let fruits = ["apple", "banana"]; fruits.push("cherry")</p>
+            <div class="tip">Use JS for web-based video editors or interactive tutorials.</div>
+        </div>
+        <div class="lesson">
+            <h2>JavaScript Advanced</h2>
+            <p><strong>Step 1:</strong> Define class with constructor.</p>
+            <p><strong>Step 2:</strong> Use new Promise for async.</p>
+            <p><strong>Step 3:</strong> Manipulate DOM with getElementById.</p>
+            <p><strong>Classes:</strong> class Dog { constructor(name) { this.name = name; } bark() { console.log("Woof!"); } }</p>
+            <p><strong>Promises:</strong> new Promise((resolve) => { setTimeout(resolve, 1000); }).then(() => console.log("Done"))</p>
+            <p><strong>DOM Manipulation:</strong> document.getElementById("id").innerHTML = "New text"</p>
+            <p><strong>Async/Await:</strong> async function fetchData() { let res = await fetch("url"); let data = await res.json(); }</p>
+        </div>
+        <div class="lesson">
+            <h2>C# Basics</h2>
+            <p><strong>Step 1:</strong> Using System; Console.WriteLine.</p>
+            <p><strong>Step 2:</strong> Declare int/string variables.</p>
+            <p><strong>Step 3:</strong> For loop with i=0.</p>
+            <p>C# for .NET apps, games (Unity), enterprise software.</p>
+            <p><strong>Hello World:</strong> Console.WriteLine("Hello, World!");</p>
+            <p><strong>Variables:</strong> int x = 5; string name = "Alice";</p>
+            <p><strong>Loops:</strong> for (int i = 0; i < 5; i++) { Console.WriteLine(i); }</p>
+            <p><strong>Methods:</strong> int Add(int a, int b) { return a + b; }</p>
+            <p><strong>Lists:</strong> List<string> fruits = new List<string> { "apple", "banana" }; fruits.Add("cherry");</p>
+        </div>
+        <div class="lesson">
+            <h2>C# Advanced</h2>
+            <p><strong>Step 1:</strong> Define class with constructor.</p>
+            <p><strong>Step 2:</strong> Use LINQ from/select.</p>
+            <p><strong>Step 3:</strong> Async Task with await.</p>
+            <p><strong>Classes:</strong> class Dog { public string Name; public Dog(string name) { Name = name; } public void Bark() { Console.WriteLine("Woof!"); } }</p>
+            <p><strong>LINQ:</strong> var query = from f in fruits where f.StartsWith("a") select f;</p>
+            <p><strong>Async:</strong> async Task FetchData() { using HttpClient client = new(); string res = await client.GetStringAsync("url"); }</p>
+        </div>
+        <div class="lesson">
+            <h2>C++ Basics</h2>
+            <p><strong>Step 1:</strong> #include <iostream>; main with cout.</p>
+            <p><strong>Step 2:</strong> Declare int/string variables.</p>
+            <p><strong>Step 3:</strong> For loop with i=0.</p>
+            <p>C++ for performance-critical apps, games, systems.</p>
+            <p><strong>Hello World:</strong> #include <iostream>; int main() { std::cout << "Hello, World!" << std::endl; return 0; }</p>
+            <p><strong>Variables:</strong> int x = 5; std::string name = "Alice";</p>
+            <p><strong>Loops:</strong> for (int i = 0; i < 5; ++i) { std::cout << i << std::endl; }</p>
+            <p><strong>Functions:</strong> int add(int a, int b) { return a + b; }</p>
+            <p><strong>Vectors:</strong> #include <vector>; std::vector<std::string> fruits = {"apple", "banana"}; fruits.push_back("cherry");</p>
+        </div>
+        <div class="lesson">
+            <h2>C++ Advanced</h2>
+            <p><strong>Step 1:</strong> Define class with constructor.</p>
+            <p><strong>Step 2:</strong> Use new/delete for pointers.</p>
+            <p><strong>Step 3:</strong> Template <typename T>.</p>
+            <p><strong>Classes:</strong> class Dog { public: std::string name; Dog(std::string n) : name(n) {} void bark() { std::cout << "Woof!" << std::endl; } };</p>
+            <p><strong>Pointers:</strong> int* p = new int(5); *p = 10; delete p;</p>
+            <p><strong>Templates:</strong> template <typename T> T max(T a, T b) { return a > b ? a : b; }</p>
+        </div>
+        <div class="lesson">
+            <h2>Java Basics</h2>
+            <p><strong>Step 1:</strong> public class Main { main with System.out.</p>
+            <p><strong>Step 2:</strong> Declare int/String variables.</p>
+            <p><strong>Step 3:</strong> For loop with i=0.</p>
+            <p>Java for cross-platform apps, Android.</p>
+            <p><strong>Hello World:</strong> public class Main { public static void main(String[] args) { System.out.println("Hello, World!"); } }</p>
+            <p><strong>Variables:</strong> int x = 5; String name = "Alice";</p>
+            <p><strong>Loops:</strong> for (int i = 0; i < 5; i++) { System.out.println(i); }</p>
+            <p><strong>Methods:</strong> public int add(int a, int b) { return a + b; }</p>
+            <p><strong>Arrays:</strong> String[] fruits = {"apple", "banana"};</p>
+        </div>
+        <div class="lesson">
+            <h2>Rust Basics</h2>
+            <p><strong>Step 1:</strong> fn main() { println! }</p>
+            <p><strong>Step 2:</strong> let x = 5;</p>
+            <p><strong>Step 3:</strong> for i in 0..5 { }</p>
+            <p>Rust for safe, concurrent systems programming.</p>
+            <p><strong>Hello World:</strong> fn main() { println!("Hello, World!"); }</p>
+            <p><strong>Variables:</strong> let x = 5; let name = "Alice";</p>
+            <p><strong>Loops:</strong> for i in 0..5 { println!("{}", i); }</p>
+            <p><strong>Functions:</strong> fn add(a: i32, b: i32) -> i32 { a + b }</p>
+            <p><strong>Vectors:</strong> let mut fruits = vec!["apple", "banana"]; fruits.push("cherry");</p>
+        </div>
+        <div class="lesson">
+            <h2>Go Basics</h2>
+            <p><strong>Step 1:</strong> package main; func main() { fmt.Println }</p>
+            <p><strong>Step 2:</strong> var x int = 5; name := "Alice"</p>
+            <p><strong>Step 3:</strong> for i := 0; i < 5; i++ { }</p>
+            <p>Go for efficient, simple servers and tools.</p>
+            <p><strong>Hello World:</strong> package main; import "fmt"; func main() { fmt.Println("Hello, World!") }</p>
+            <p><strong>Variables:</strong> var x int = 5; name := "Alice"</p>
+            <p><strong>Loops:</strong> for i := 0; i < 5; i++ { fmt.Println(i) }</p>
+            <p><strong>Functions:</strong> func add(a int, b int) int { return a + b }</p>
+            <p><strong>Slices:</strong> fruits := []string{"apple", "banana"}; fruits = append(fruits, "cherry")</p>
+        </div>
+    </section>
+    <footer>
+        &copy; 2025 NeoEdit Academy – Learn Editing & Coding Through Clear Explanation
+    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.lesson').forEach(lesson => observer.observe(lesson));
+    </script>
+</body>
+</html>
